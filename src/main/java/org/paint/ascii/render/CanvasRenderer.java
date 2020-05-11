@@ -37,12 +37,12 @@ public class CanvasRenderer {
         return new BorderedTextCanvas(width, height, 'x', ' ');
     }
     private static void render(Canvas canvas, Line line) throws DrawFigureException {
-        FigureValidator.INSTaNCE.validate(canvas, line);
+        FigureValidator.INSTANCE.validate(canvas, line);
         canvas.addPoints(LineRenderer.INSTANCE.render(line));
     }
 
     private static void render(Canvas canvas, Rectangle rectangle) throws DrawFigureException {
-        FigureValidator.INSTaNCE.validate(canvas, rectangle);
+        FigureValidator.INSTANCE.validate(canvas, rectangle);
         canvas.addPoints(RectangleRenderer.INSTANCE.render(rectangle));
     }
 

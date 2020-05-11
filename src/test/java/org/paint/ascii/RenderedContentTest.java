@@ -73,6 +73,22 @@ public class RenderedContentTest {
     }
 
     @Test
+    public void testIntersectedLinesRotatedCoordinates() throws DrawFigureException {
+        String expectedPicture = "" +
+                "    xxxxxx          \n" +
+                "      x             \n" +
+                "      x             \n" +
+                "                    \n" +
+                "                    \n";
+        String[] line1 = {"L", "10", "1", "5", "1"};
+        String[] line2 = {"L", "7", "3", "7", "1"};
+        CanvasRenderer.render(canvas, line1);
+        CanvasRenderer.render(canvas, line2);
+        painter.printCanvas(canvas);
+        assertEquals(expectedPicture, resultPicture.toString());
+    }
+
+    @Test
     public void testObliqueLineLeft() throws DrawFigureException {
         String expectedPicture = "" +
                 "xx                  \n" +
@@ -111,6 +127,21 @@ public class RenderedContentTest {
                 "              xxxxxx\n";
 
         String[] command = {"R", "15", "2", "20", "5"};
+        CanvasRenderer.render(canvas, command);
+        painter.printCanvas(canvas);
+        assertEquals(expectedPicture, resultPicture.toString());
+    }
+
+    @Test
+    public void testRectangleRotatedCoordinates() throws DrawFigureException {
+        String expectedPicture = "" +
+                "                    \n" +
+                "              xxxxxx\n" +
+                "              x    x\n" +
+                "              x    x\n" +
+                "              xxxxxx\n";
+
+        String[] command = {"R", "20", "5", "15", "2"};
         CanvasRenderer.render(canvas, command);
         painter.printCanvas(canvas);
         assertEquals(expectedPicture, resultPicture.toString());

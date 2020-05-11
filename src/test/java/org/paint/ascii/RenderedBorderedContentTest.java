@@ -72,6 +72,24 @@ public class RenderedBorderedContentTest {
     }
 
     @Test
+    public void testIntersectedLinesRotatedCoordinates() throws DrawFigureException {
+        String expectedPicture = "" +
+                "----------------------\n" +
+                "|    xxxxxx          |\n" +
+                "|      x             |\n" +
+                "|      x             |\n" +
+                "|                    |\n" +
+                "|                    |\n" +
+                "----------------------\n";
+        String[] line1 = {"L", "10", "1", "5", "1"};
+        String[] line2 = {"L", "7", "3", "7", "1"};
+        CanvasRenderer.render(canvas, line1);
+        CanvasRenderer.render(canvas, line2);
+        painter.printCanvas(canvas);
+        assertEquals(expectedPicture, resultPicture.toString());
+    }
+
+    @Test
     public void testObliqueLineLeft() throws DrawFigureException {
         String expectedPicture = "" +
                 "----------------------\n" +
@@ -105,7 +123,7 @@ public class RenderedBorderedContentTest {
 
     @Test
     public void testRectangle() throws DrawFigureException {
-        String expectedPicture="" +
+        String expectedPicture = "" +
                 "----------------------\n" +
                 "|                    |\n" +
                 "|              xxxxxx|\n" +
@@ -118,10 +136,25 @@ public class RenderedBorderedContentTest {
         painter.printCanvas(canvas);
         assertEquals(expectedPicture, resultPicture.toString());
     }
+    @Test
+    public void testRectangleRotatedCoordinates() throws DrawFigureException {
+        String expectedPicture = "" +
+                "----------------------\n" +
+                "|                    |\n" +
+                "|              xxxxxx|\n" +
+                "|              x    x|\n" +
+                "|              x    x|\n" +
+                "|              xxxxxx|\n" +
+                "----------------------\n";
+        String[] command = {"R", "20", "5", "15", "2"};
+        CanvasRenderer.render(canvas, command);
+        painter.printCanvas(canvas);
+        assertEquals(expectedPicture, resultPicture.toString());
+    }
 
     @Test
     public void testRectangleAndLine() throws DrawFigureException {
-        String expectedPicture="" +
+        String expectedPicture = "" +
                 "----------------------\n" +
                 "|xxxxxxxxxxxxxxxxxxxx|\n" +
                 "|x                  x|\n" +

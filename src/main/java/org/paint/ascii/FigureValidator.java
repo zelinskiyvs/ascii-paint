@@ -7,7 +7,7 @@ import org.paint.ascii.model.Line;
 import org.paint.ascii.model.Rectangle;
 
 public enum FigureValidator {
-    INSTaNCE;
+    INSTANCE;
 
     public void validate(Canvas canvas, Line line) throws DrawFigureException {
         if (line.getxStart() <= 0 || line.getyStart() <= 0 || line.getxEnd() <= 0 || line.getyEnd() <= 0) {
