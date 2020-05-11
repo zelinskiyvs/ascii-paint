@@ -7,6 +7,7 @@ Command | Description
 C 10 10 | draw canvas 10 x 10
 L 1 1 10 10 | draw line from (1, 1) to (10, 10)
 R 1 1 10 10 | draw rectangle with coordinates (1, 1), (1, 10), (10, 1), (10, 10)
+Q | Quit the program
 
 Example:
 ```text
